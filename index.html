@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>soil Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Soil Monitoring System</h1>
+            <div class="user-info">
+                <img id="profilePhotoDisplay" class="profile-photo" src="" alt="" style="display: none;">
+                <span id="usernameDisplay">Guest</span>
+                <button id="themeToggleBtn">Theme</button>
+                <button id="logoutBtn" style="display:none;">Logout</button>
+            </div>
+        </header>
+
+        <main>
+            <section class="soil-analysis">
+                <h2>Soil Analysis</h2>
+                <div id="authReminder" style="text-align:center; margin-bottom:20px; display:none;">
+                    <strong>Please login to use the soil analysis tool.</strong>
+                </div>
+                
+                <div class="analysis-grid" id="soilForm" style="display:none;">
+                    <div class="input-group">
+                        <label for="moisture">Soil Moisture (%)</label>
+                        <input type="number" id="moisture" placeholder="20-40% is ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="ph">Soil pH Level</label>
+                        <input type="number" step="0.1" id="ph" placeholder="6.0-7.5 is ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="temperature">Temperature (°C)</label>
+                        <input type="number" id="temperature" placeholder="15-30°C is ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="nitrogen">Nitrogen (mg/kg)</label>
+                        <input type="number" id="nitrogen" placeholder="200-500 mg/kg ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="phosphorus">Phosphorus (mg/kg)</label>
+                        <input type="number" id="phosphorus" placeholder="20-80 mg/kg ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="potassium">Potassium (mg/kg)</label>
+                        <input type="number" id="potassium" placeholder="300-800 mg/kg ideal">
+                    </div>
+                    <div class="input-group">
+                        <label for="organicMatter">Organic Matter (%)</label>
+                        <input type="number" id="organicMatter" placeholder="2-5% is ideal">
+                    </div>
+                </div>
+
+                <button class="analyze-btn" id="analyzeBtn" style="display:none;">Analyze Soil</button>
+
+                <div class="results" id="resultsContainer" style="display:none;">
+                    <h3>Analysis Result:</h3>
+                    <p id="result" class="result-text">-</p>
+
+                    <h3>Recommendations:</h3>
+                    <div id="recommendations" class="recommendation-text"></div>
+
+                    <h3>Fertilizer Recommendations:</h3>
+                    <div id="fertilizerRecommendations" class="fertilizer-recommendations"></div>
+
+                    <h3>Crop Suggestions:</h3>
+                    <div id="crops" class="recommendation-text"></div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Modal for Authentication -->
+    <div id="authModal" class="auth-container" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); display:flex; align-items:center; justify-content:center;">
+        <div class="auth-box" style="max-width:400px; width:100%;">
+            <div class="auth-header">
+                <h2 id="formTitle">Welcome Back!</h2>
+                <p id="formSubtitle">Please login to access your soil analysis dashboard</p>
+            </div>
+            <form id="authForm">
+                <div class="input-group" id="nameGroup" style="display:none;">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name">
+                </div>
+                <div class="input-group" id="emailGroup" style="display:none;">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                <div class="input-group">
+                    <label for="username">Username</label>
+                    <input type="text" id="username" placeholder="Enter your username" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                <div class="input-group" id="confirmPasswordGroup" style="display:none;">
+                    <label for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" placeholder="Confirm your password">
+                </div>
+                <div class="input-group" id="profilePhotoGroup" style="display:none;">
+                    <label for="profilePhoto">Profile Photo (optional)</label>
+                    <input type="file" id="profilePhoto" accept="image/*">
+                </div>
+                <button type="button" id="actionButton" class="auth-button">Login</button>
+                <div class="auth-footer">
+                    <p id="toggleText">Don't have an account? <a href="#" onclick="toggleAuthMode()">Sign up</a></p>
+                    <p id="error-msg" class="error-message"></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,134 @@
+:root {
+    --primary: #3a7d44;
+    --primary-hover: #4d9e5a;
+    --secondary: #5d8a66;
+    --danger: #d64550;
+    --warning: #e6a937;
+    --text-light: rgba(255, 255, 255, 0.9);
+    --text-muted: rgba(255, 255, 255, 0.6);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);
+    color: white;
+    line-height: 1.6;
+    min-height: 100vh;
+    overflow-x: hidden;
+    transition: background 0.4s;
+}
+
+/* Light mode toggle */
+body.light-mode {
+    background: #f0f0f0;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 30px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.profile-photo {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.auth-container {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.auth-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    border-radius: 12px;
+}
+
+input, button {
+    width: 100%;
+    margin: 10px 0;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+}
+
+input {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+.analyze-btn, .auth-button {
+    background: var(--primary);
+    color: white;
+    cursor: pointer;
+}
+
+.analyze-btn:hover, .auth-button:hover {
+    background: var(--primary-hover);
+}
+
+.result-text {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+.good { color: #2ecc71; }
+.moderate { color: #f1c40f; }
+.poor { color: #e74c3c; }
+
+.fertilizer-recommendations {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 10px;
+}
+
+.fertilizer-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary);
+}
+
+/* Theme toggle */
+#themeToggleBtn {
+    width: auto;
+    background: var(--secondary);
+    padding: 8px 15px;
+}
+
+#themeToggleBtn:hover {
+    background: var(--primary-hover);
+}
